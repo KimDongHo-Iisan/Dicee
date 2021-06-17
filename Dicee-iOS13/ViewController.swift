@@ -20,15 +20,9 @@ class ViewController: UIViewController {
 
     @IBAction func rollButtonPressed(_ sender: UIButton) {
       
-        var diceArray = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")]  //일관되게 사용되는 배열이어서 변수로 선언해서 중복을 없앰.
-        diceImageView1.image = diceArray[Int.random(in: 0...5)] //random  함수를 이용해 0부터 5까지 범위의 숫자가 무작위로 나오게 함.
-        diceImageView2.image = diceArray[Int.random(in: 0...5)]
-        
-        /* random 함수를 사용하게 되면 필요가 없음
-        leftDiceNumber += 1 // 이렇게 위 코드보다 더 간결하게 만들수 있음
-        rightDiceNumber -= 1
-        */
-        //print(Int.random(in: 1...10)) // 1부터 10까지 무작위의 난수를 생성한다.
+        let diceArray = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")]
+        diceImageView1.image = diceArray.randomElement() // 이것은 random 함수와 같은 역할을 하지만, 차이점은 randomElement는 범위를 지정할 필요 없이, 배열 내부의 요소를 확인하고, 임의의 요소를 제공할수 있다는 차이점이 있다.
+        diceImageView2.image = diceArray.randomElement()
     }
 }
 
