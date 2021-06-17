@@ -12,24 +12,23 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var diceImageView1: UIImageView!
     @IBOutlet weak var diceImageView2: UIImageView!
-    //변수 생성
-    var leftDiceNumber = 1
-    var rightDiceNumber = 5
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
       
     }
 
     @IBAction func rollButtonPressed(_ sender: UIButton) {
-        //[]은 컬렉션 모음을 뜻함 배열은 0부터 시작함.
-        diceImageView1.image = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")][leftDiceNumber]
-        diceImageView2.image = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")][rightDiceNumber]
+      
+        var diceArray = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")]  //일관되게 사용되는 배열이어서 변수로 선언해서 중복을 없앰.
+        diceImageView1.image = diceArray[Int.random(in: 0...5)] //random  함수를 이용해 0부터 5까지 범위의 숫자가 무작위로 나오게 함.
+        diceImageView2.image = diceArray[Int.random(in: 0...5)]
         
-        //롤 버튼을 누를때, leftDiceNumber의 숫자가 1씩 늘어남
-        leftDiceNumber = leftDiceNumber + 1
-        //롤 버튼을 누를때, rightDiceNumber의 숫자가 1씩 줄어듬
-        rightDiceNumber = rightDiceNumber - 1
+        /* random 함수를 사용하게 되면 필요가 없음
+        leftDiceNumber += 1 // 이렇게 위 코드보다 더 간결하게 만들수 있음
+        rightDiceNumber -= 1
+        */
+        //print(Int.random(in: 1...10)) // 1부터 10까지 무작위의 난수를 생성한다.
     }
 }
 
