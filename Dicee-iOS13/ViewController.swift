@@ -11,15 +11,17 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var diceImageView1: UIImageView!
+    @IBOutlet weak var diceImageView2: UIImageView!
+    
     //뷰가 로드될때 처음 실행되는 코드
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Who.What = Value
-        //diceImageView1의 주사위를 6으로 변경
-        diceImageView1.image = #imageLiteral(resourceName: "DiceSix") // imageliteral
+        diceImageView1.image = #imageLiteral(resourceName: "DiceSix") // diceImageView1의 주사위를 6으로 변경, imageliteral
         //imageView의 투명도를 0.5로
         diceImageView1.alpha = 0.5
+        diceImageView2.image = #imageLiteral(resourceName: "DiceTwo")
     }
 
 
