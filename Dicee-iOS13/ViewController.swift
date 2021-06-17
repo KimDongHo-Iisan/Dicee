@@ -13,17 +13,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var diceImageView1: UIImageView!
     @IBOutlet weak var diceImageView2: UIImageView!
     
-    //뷰가 로드될때 처음 실행되는 코드
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Who.What = Value
-        diceImageView1.image = #imageLiteral(resourceName: "DiceSix") // diceImageView1의 주사위를 6으로 변경, imageliteral
-        //imageView의 투명도를 0.5로
-        diceImageView1.alpha = 0.5
+        diceImageView1.image = #imageLiteral(resourceName: "DiceSix")
+      
         diceImageView2.image = #imageLiteral(resourceName: "DiceTwo")
     }
 
 
+    @IBAction func rollButtonPressed(_ sender: UIButton) {
+        //디버그 콘솔에 출력할 내용을 적는 코드
+        print("Button got tapped")
+        //button을 누르면 주사위가 4가 되도록 함.
+        diceImageView1.image = #imageLiteral(resourceName: "DiceFour")
+        diceImageView2.image = #imageLiteral(resourceName: "DiceFour")
+    }
 }
 
